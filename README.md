@@ -4,7 +4,7 @@
 let base='';  
 //传送json格式的post请求  
 export contst postRequest=(url,params)=>{  
-   return axios({  
+   &ensp;return axios({  
    method:'post ,
    url:`${base}${url}`
    })
