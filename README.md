@@ -69,7 +69,7 @@ module.exports={
 ```
 import {postRequest}  from "../utils/api"
 vue.prototype.postRequest=postRequst;
-全局使用要加上this.，例如：
+全局使用要加上this.，例如：里面的loginFrom是用户账号数据
 this,postRequest('/login',this.loginFrom).then(rep=>{
    if(resp){
         this.loading=false;
@@ -81,4 +81,4 @@ this,postRequest('/login',this.loginFrom).then(rep=>{
      }
  })
 ```
-## 同理可以将get，put,delete等请求一起配置在此
+## 同理可以将get,put,delete等请求一起配置在此
