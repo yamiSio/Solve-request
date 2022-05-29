@@ -6,8 +6,8 @@
 let base='';  
 //传送json格式的post请求  
 export contst postRequest=(url,params)=>{  
-&ensp;&ensp;return axios({  
-&ensp;&ensp;&ensp;&ensp;method:'post',  
-&ensp;&ensp;&ensp;&ensp;url:"``` ${base}${url} ```",  
-&ensp;&ensp;&ensp;&ensp;})  
+  return axios({  
+    method:'post',  
+    url:` ${base}${url} `,  
+  })  
 }  
