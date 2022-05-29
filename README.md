@@ -67,6 +67,18 @@ module.exports={
 ## 可以将请求以插件的方式引入，这样就不用在每一个组件内import请求了
 ## 在main.js中进行配置
 ```
+import {postRequest}  from "../utils/api"
 vue.prototype.postRequest=postRequst;
+全局使用要加上this.，例如：
+this,postRequest('/login',this.loginFrom).then(rep=>{
+   if(resp){
+        this.loading=false;
+        //存储用户token
+        const tokenStr=resp.obj.tokenHead+resp.obj.token;
+        window.sessionStorage.setItem('tokenStr',tokenStr)
+        //跳转首页
+        this.$router.replace('/home');
+     }
+ })
 ```
 ## 同理可以将get，put,delete等请求一起配置在此
