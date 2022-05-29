@@ -1,7 +1,7 @@
 # 解决跨域问题的方法(Vue项目用node代理)
 ## 主要是由于浏览器的同源策略造成的！
 ## 在登录页面，获取图片验证码
-## 1.首先在api.js中进行发送请求设置  
+## 1.首先在utils文件内的api.js中进行发送请求设置  
 ```
 //先设置一个前置路径  
 let base='';  
@@ -17,6 +17,8 @@ export contst postRequest=(url,params)=>{
 
 ## 2.在登录页面组件中获取图片验证码
 ```
+//需要引入组件
+import {postRequest}  from "../utils/api"
 //图片加点击是为了重新加载一个新的
 <img :src="captchaUrl" @click="updataCaptchaUrl">
 <script>
@@ -61,3 +63,10 @@ module.exports={
    }
  }
 ```
+
+## 可以将请求以插件的方式引入，这样就不用在每一个组件内import请求了
+## 在main.js中进行配置
+```
+vue.prototype.postRequest=postRequst;
+```
+## 同理可以将get，put,delete等请求一起配置在此
